@@ -34,7 +34,7 @@ def predict_datapoint():
         result = ridge_model.predict(new_data_scaled)
 
         return render_template('home.html',results=result[0])
-    else:
+    else: 
         return render_template('home.html')
 
 
