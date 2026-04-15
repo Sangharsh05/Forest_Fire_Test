@@ -20,6 +20,7 @@ def index():
 @app.route('/predict',methods=['GET','POST'])
 def predict_datapoint():
     if request.method=="POST":
+
         Temperature=float(request.form.get('Temperature'))
         RH = float(request.form.get("RH"))
         Ws = float(request.form.get("Ws"))
@@ -27,16 +28,28 @@ def predict_datapoint():
         FFMC = float(request.form.get("FFMC"))
         DMC = float(request.form.get("DMC"))
         ISI = float(request.form.get("ISI"))
-        FWI = float(request.form.get("FWI"))
+        Classes = float(request.form.get("Classes"))
         Region = float(request.form.get("Region"))
 
-        new_data_scaled=standard_scaler.transform([[Temperature,RH,Ws,Rain,FFMC,DMC,ISI,FWI,Region]])
-        result = ridge_model.predict(new_data_scaled)
+        # Scale input
+        new_data_scaled = standard_scaler.transform(
+            [[Temperature,RH,Ws,Rain,FFMC,DMC,ISI,Classes,Region]]
+        )
 
-        return render_template('home.html',results=result[0])
+        # Prediction
+        prediction = ridge_model.predict(new_data_scaled)[0]
+
+        # Convert numeric → label
+        if prediction >= 0.5:
+            result = "High Fire Risk"
+        else:
+            result = "Low Fire Risk"
+
+        return render_template('home.html', results=result)
+
     else: 
         return render_template('home.html')
 
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")
+    app.run(debug=True)

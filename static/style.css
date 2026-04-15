@@ -1,0 +1,104 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Card */
+.login {
+    width: 420px;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    color: white;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.login h1 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Inputs */
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Input focus */
+form input:focus {
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.02);
+}
+
+/* Placeholder */
+form input::placeholder {
+    color: #ddd;
+}
+
+/* Button */
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #ff9800;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+button:hover {
+    background: #e68900;
+    transform: scale(1.05);
+}
+
+/* Result Box */
+h2 {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* High Risk */
+.high {
+    background: rgba(255, 0, 0, 0.4);
+}
+
+/* Low Risk */
+.low {
+    background: rgba(0, 255, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .login {
+        width: 90%;
+    }
+}
