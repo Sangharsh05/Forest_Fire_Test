@@ -27,10 +27,10 @@ def predict_datapoint():
         FFMC = float(request.form.get("FFMC"))
         DMC = float(request.form.get("DMC"))
         ISI = float(request.form.get("ISI"))
-        Classes = float(request.form.get("Classes"))
+        FWI = float(request.form.get("FWI"))
         Region = float(request.form.get("Region"))
 
-        new_data_scaled=standard_scaler.transform([[Temperature,RH,Ws,Rain,FFMC,DMC,ISI,Classes,Region]])
+        new_data_scaled=standard_scaler.transform([[Temperature,RH,Ws,Rain,FFMC,DMC,ISI,FWI,Region]])
         result = ridge_model.predict(new_data_scaled)
 
         return render_template('home.html',results=result[0])

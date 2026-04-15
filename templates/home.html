@@ -1,7 +1,7 @@
 <html>
 <body>
     <div class="login">
-        <h1>FWI Prediction</h1>
+        <h1>Fire Prediction</h1>
 
          <!-- Main Input for Receiving Query to our ML-->
         <form action="{{ url_for('predict_datapoint')}}" method="post">
@@ -12,13 +12,13 @@
             <input type="text" name="FFMC" placeholder="FFMC" required="required"/>
             <input type="text" name="DMC" placeholder="DMC" required="required"/>
             <input type="text" name="ISI" placeholder="ISI" required="required"/>
-            <input type="text" name="Classes" placeholder="Classes" required="required"/>
+            <input type="text" name="FWI" placeholder="FWI" required="required"/>
             <input type="text" name="Region" placeholder="Region" required="required"/>
 
             <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
         </form>
     <h2>
-        THE FWI prediction is {{results}}
+        THE Forest Fire prediction is {{results}}
     </h2>
     </div>
 </body>
